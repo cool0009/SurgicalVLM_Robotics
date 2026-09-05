@@ -97,15 +97,6 @@ pytest tests/ -v
 ```
 
 ---
-
-## Dataset Paths ⚠ READ BEFORE FIRST RUN
-`image_root` in `VLMJSONLDataset` defaults to `data/raw`. The four live JSONL sets do **not** resolve there out of the box:
-- Surg-396K rows are `CoPESD/<video>/<frame>.jpg` (relative) → point root at the unpacked Surg-396K dir.
-- Cholec80 / HeiChole / CholecT50 rows are `frames/<dataset>/...` → the extracted frames are under `data/frames/`, so those root(s) must point there (or the `frames/` prefix stripped).
-Verify with a read-only dataset-load check on the volume before launching.
-
----
-
 ## Configuration
 
 **Primary (7B, RunPod A100 80GB):** `configs/training/runpod_7b_config.yaml`
