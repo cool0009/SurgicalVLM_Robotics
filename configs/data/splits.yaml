@@ -1,0 +1,11 @@
+# Video-level train/val/test splits for surgical datasets
+# Used by SplitManager to prevent frame-level data leakage
+
+splits_dir: "data/splits"
+global_exclusions: "data/splits/global_exclusions.json"
+
+datasets:
+  cholec80: "data/splits/cholec80_splits.json"
+  heichole: "data/splits/heichole_splits.json"
+  cholect50: "data/splits/cholect50_splits.json"
+  surg396k: "data/splits/surg396k_splits.json"

@@ -1,0 +1,137 @@
+# RunPod Training Configuration (SurgicalVLM 7B)
+# Target: single NVIDIA A100 80GB GPU Pod (RunPod)
+# Model: Qwen2.5-VL-7B-Instruct (load_in_4bit)
+# Network Volume mounted at /runpod-volume -> volume holds data, HF cache, checkpoints, logs.
+
+model:
+  type: "qwen3_vl"                # Qwen/Qwen2.5-VL-7B-Instruct (7B)
+  load_in_4bit: true
+  use_temporal: true              # Temporal clips enabled (Option A): stack 3 frames
+  max_pixels: 1003520             # Limit image resolution to fit within max_length=2048
+  temporal_config:
+    hidden_dim: 3584              # Qwen2.5-VL-7B hidden size
+    num_heads: 8
+    num_layers: 4
+    dropout: 0.1
+    max_frames: 16
+    num_frames: 3                 # Frames per clip -> must match data.seq_length
+    use_pos_encoding: true
+
+# Multi-task settings
+multitask:
+  sampling_strategy: "weighted_equal"
+  dataset_ratios:
+    cholec80: 1.0
+    cholec_t50: 1.0
+    heichole: 1.0
+    surg396k: 1.0
+  loss_weights:
+    phase_classification: 2.0       # classification — needs strong supervision
+    tool_detection: 1.5              # multi-label — harder
+    action_triplet: 1.5               # structured output — harder
+    language_modeling: 1.0            # generation — base model already good
+    triplet: 1.5                      # structured output — harder
+    grounding: 0.5
+
+# Optimization for A100
+optimizer:
+  type: "AdamW"
+  lr: 2e-4              # TODO.md §4.3.1: Start with LR = 2e-4 for LoRA (standard for Qwen LoRA)
+  weight_decay: 0.01
+  betas: [0.9, 0.999]
+  eps: 1e-8
+
+scheduler:
+  type: "cosine_with_warmup"
+  warmup_steps: 200
+  min_lr_ratio: 0.01
+
+# Training settings for single A100 80GB
+training:
+  seed: 42                        # Fixed seed: reproducible WeightedRandomSampler + init
+  max_epochs: 3
+  epochs: 3                       # TODO.md §4.4: epochs: 3 (or total_steps if using sampling)
+  steps_per_epoch: 2000
+  max_steps: 6000               # Full Phase 4.6 run on pod (matches actual training)
+  batch_size: 4                   # TODO.md §4.4: batch_size: 4
+  gradient_accumulation_steps: 4   # TODO.md §4.4: gradient_accumulation_steps: 4
+  effective_batch_size: 16         # = 4 × 4 = 16
+  max_grad_norm: 1.0
+  learning_rate: 2e-4             # TODO.md §4.4: learning_rate: 2e-4
+  weight_decay: 0.01
+  min_lr: 1e-6
+  num_workers: 8                   # Consumed by train_multitask.py loaders
+  mixed_precision: "bf16"          # A100 supports bf16
+  gradient_checkpointing: true
+  dataloader_num_workers: 8
+  pin_memory: true
+
+  logging_steps: 10               # TODO.md §4.4: logging_steps: 10
+  eval_steps: 500                  # TODO.md §4.4: eval_steps: 500
+  save_steps: 500                  # TODO.md §4.4: save_steps: 500
+  save_total_limit: 3              # TODO.md §4.4: save_total_limit: 3
+  max_eval_samples: 500
+
+  early_stopping_patience: 3
+  early_stopping_metric: "val/combined_score"
+
+  # Checkpoints persist on the Network Volume; relative "checkpoints/..." would
+  # land in the (ephemeral) pod image/workspace and be lost on pod restart.
+  output_dir: "/runpod-volume/checkpoints/multitask"
+
+# LoRA for 7B model
+lora:
+  enabled: true
+  # Path to the LoRA config consumed by SurgicalVLM.apply_lora (LoraConfig kwargs).
+  # apply_lora reads ONLY this file (r=32, lora_alpha=32) — the inline r/alpha below are not used.
+  config_path: "configs/training/lora_config.yaml"
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  modules_to_save: ["embed_tokens", "lm_head"]
+
+# Output adapter for 7B
+output_adapter:
+  hidden_dim: 3584                # Qwen2.5-VL-7B hidden size
+  num_phases: 8
+  num_instruments: 7
+  num_actions: 10
+  triplet_instruments: 6
+  triplet_verbs: 10
+  triplet_targets: 15
+  vocab_size: 152064
+  use_temporal: true
+
+# Data paths for JSONL files
+data:
+  # data/ is uploaded to the volume (e.g. data.tar); JSONLs are NOT in git
+  # (.gitignore), so the whole data tree must live on the volume.
+  jsonl_dir: "/runpod-volume/data/processed/vlm_jsonl"
+  splits_dir: "configs/data/splits.yaml"     # stays in-repo
+  train_files:
+    - "cholec80_phases_vlm_train.jsonl"
+    - "heichole_multitask_vlm_train.jsonl"
+    - "cholect50_triplets_vlm_train.jsonl"
+    - "surg396k_vlm_train.jsonl"
+  val_files:
+    - "cholec80_phases_vlm_val.jsonl"
+    - "heichole_multitask_vlm_val.jsonl"
+    - "cholect50_triplets_vlm_val.jsonl"
+    - "surg396k_vlm_val.jsonl"
+  test_files:
+    - "cholec80_phases_vlm_test.jsonl"
+    - "heichole_multitask_vlm_test.jsonl"
+    - "cholect50_triplets_vlm_test.jsonl"
+    - "surg396k_vlm_test.jsonl"
+  fps: 1
+  seq_length: 3                   # Temporal: 3 frames per clip (matches temporal_config.num_frames)
+  max_text_length: 512
+  # Universal root. Datasets use relative paths that resolve against this:
+  #   cholec80/heichole/cholect50 -> "frames/<ds>/..." -> /runpod-volume/data/frames/<ds>/...
+  #   surg396k                   -> "raw/Surg-396k/CoPESD/CoPESD/..." -> /runpod-volume/data/raw/...
+  image_root: "/runpod-volume/data"

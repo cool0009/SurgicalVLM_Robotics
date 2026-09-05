@@ -1,0 +1,102 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs, checkpoints, wandb
+logs/
+checkpoints/
+wandb/
+.cache/
+*.log
+
+# Data files (large)
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.npy
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# RunPod upload bundle (built locally; uploaded to the Network Volume)
+data.tar
+*.tar
+tar_build.*
+tar_pid.txt
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Environment files
+.env
+.env.local
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+
+# pytest
+.pytest_cache/
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Large model files (download on demand)
+src/models/pretrained/
+# models/  <-- REMOVED: was ignoring surgical_vlm/models/ which contains source code
+
+# Results (keep structure, ignore contents)
+results/*/*
+
+# CRITICAL: Exclude entire data/ folder (large videos, annotations, frames)
+# .gitkeep files preserve the directory structure
+data/*
+
+# Exception: track .gitkeep to preserve empty folder structure
+!data/.gitkeep
+!data/*/.gitkeep
+
+# RunPod CLI binary (kept locally, not redistributed)
+runpodctl.exe
+
+# Local checkpoint backups / transfer staging (large, not for the repo)
+checkpoints_backup/
+scratch_transfer/
+
+# Dataset-derived subsets (redistribution restricted by source dataset licenses)
+surg396k_sub.jsonl
+surg396k_sub_imagelist.txt
+
+# Word lock files
+~$*.docx

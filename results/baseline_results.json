@@ -1,0 +1,427 @@
+{
+  "phase_cholec80": {
+    "random": {
+      "accuracy": 0.162,
+      "weighted_f1": 0.1877736787683927,
+      "macro_f1": 0.13843462189403943,
+      "per_phase_f1": {
+        "Preparation": 0.061224489795918366,
+        "CalotTriangleDissection": 0.2426470588235294,
+        "ClippingCutting": 0.1568627450980392,
+        "GallbladderDissection": 0.18106995884773663,
+        "GallbladderPackaging": 0.11764705882352941,
+        "CleaningCoagulation": 0.057692307692307696,
+        "GallbladderRetraction": 0.1518987341772152
+      },
+      "confusion_matrix": [
+        [
+          3,
+          1,
+          2,
+          1,
+          4,
+          5,
+          1
+        ],
+        [
+          35,
+          33,
+          17,
+          28,
+          32,
+          26,
+          22
+        ],
+        [
+          4,
+          6,
+          8,
+          4,
+          3,
+          6,
+          6
+        ],
+        [
+          31,
+          26,
+          28,
+          22,
+          24,
+          29,
+          22
+        ],
+        [
+          2,
+          3,
+          4,
+          3,
+          6,
+          6,
+          2
+        ],
+        [
+          4,
+          8,
+          3,
+          2,
+          5,
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          3,
+          1,
+          2,
+          1,
+          6
+        ]
+      ],
+      "transition_accuracy": 0.8,
+      "num_samples": 500
+    },
+    "majority": {
+      "accuracy": 0.386,
+      "weighted_f1": 0.21500144300144303,
+      "macro_f1": 0.0795712224283653,
+      "per_phase_f1": {
+        "Preparation": 0.0,
+        "CalotTriangleDissection": 0.556998556998557,
+        "ClippingCutting": 0.0,
+        "GallbladderDissection": 0.0,
+        "GallbladderPackaging": 0.0,
+        "CleaningCoagulation": 0.0,
+        "GallbladderRetraction": 0.0
+      },
+      "confusion_matrix": [
+        [
+          0,
+          17,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          193,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          37,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          182,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          26,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          28,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          17,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "transition_accuracy": 0.16,
+      "num_samples": 500
+    },
+    "majority_class": "CalotTriangleDissection"
+  },
+  "phase_heichole": {
+    "random": {
+      "accuracy": 0.15483870967741936,
+      "weighted_f1": 0.2681564245810056,
+      "macro_f1": 0.03830806065442937,
+      "per_phase_f1": {
+        "Preparation": 0.2681564245810056,
+        "CalotTriangleDissection": 0.0,
+        "ClippingCutting": 0.0,
+        "GallbladderDissection": 0.0,
+        "GallbladderPackaging": 0.0,
+        "CleaningCoagulation": 0.0,
+        "GallbladderRetraction": 0.0
+      },
+      "confusion_matrix": [
+        [
+          24,
+          22,
+          25,
+          17,
+          17,
+          24,
+          26
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "transition_accuracy": 0.0,
+      "num_samples": 155
+    },
+    "majority": {
+      "accuracy": 1.0,
+      "weighted_f1": 1.0,
+      "macro_f1": 1.0,
+      "per_phase_f1": {
+        "Preparation": 1.0
+      },
+      "confusion_matrix": [
+        [
+          155,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "transition_accuracy": 0.0,
+      "num_samples": 155
+    },
+    "majority_class": "Preparation"
+  },
+  "instruments_cholec80": {
+    "random": {
+      "macro_f1": 0.1965445219612925,
+      "micro_f1": 0.26403771967423917,
+      "samples_f1": 0.23647301587301586,
+      "subset_accuracy": 0.004,
+      "hamming_loss": 0.49057142857142855,
+      "map_05": 0.1965445219612925,
+      "per_tool_f1": {
+        "Grasper": 0.4856512141280353,
+        "Bipolar": 0.05555555555555556,
+        "Hook": 0.5421903052064632,
+        "Scissors": 0.023622047244094484,
+        "Clipper": 0.06716417910447763,
+        "Irrigator": 0.07662835249042146,
+        "SpecimenBag": 0.125
+      },
+      "per_tool_precision": {
+        "Grasper": 0.4641350210970464,
+        "Bipolar": 0.029787234042553193,
+        "Hook": 0.6188524590163934,
+        "Scissors": 0.012295081967213115,
+        "Clipper": 0.035856573705179286,
+        "Irrigator": 0.04149377593360996,
+        "SpecimenBag": 0.06976744186046512
+      },
+      "per_tool_recall": {
+        "Grasper": 0.5092592592592593,
+        "Bipolar": 0.4117647058823529,
+        "Hook": 0.48242811501597443,
+        "Scissors": 0.3,
+        "Clipper": 0.5294117647058824,
+        "Irrigator": 0.5,
+        "SpecimenBag": 0.6
+      },
+      "num_samples": 500
+    },
+    "majority": {
+      "macro_f1": 0.19619137931203734,
+      "micro_f1": 0.651879235982748,
+      "samples_f1": 0.6042000000000001,
+      "subset_accuracy": 0.246,
+      "hamming_loss": 0.16142857142857142,
+      "map_05": 0.19619137931203734,
+      "per_tool_f1": {
+        "Grasper": 0.6033519553072626,
+        "Bipolar": 0.0,
+        "Hook": 0.7699876998769988,
+        "Scissors": 0.0,
+        "Clipper": 0.0,
+        "Irrigator": 0.0,
+        "SpecimenBag": 0.0
+      },
+      "per_tool_precision": {
+        "Grasper": 0.432,
+        "Bipolar": 0.0,
+        "Hook": 0.626,
+        "Scissors": 0.0,
+        "Clipper": 0.0,
+        "Irrigator": 0.0,
+        "SpecimenBag": 0.0
+      },
+      "per_tool_recall": {
+        "Grasper": 1.0,
+        "Bipolar": 0.0,
+        "Hook": 1.0,
+        "Scissors": 0.0,
+        "Clipper": 0.0,
+        "Irrigator": 0.0,
+        "SpecimenBag": 0.0
+      },
+      "num_samples": 500
+    },
+    "majority_class": [
+      "Grasper",
+      "Hook"
+    ]
+  },
+  "triplet_cholect50": {
+    "random": {
+      "exact_match_accuracy": 0.0,
+      "instrument_accuracy": 0.144,
+      "verb_accuracy": 0.012,
+      "target_accuracy": 0.05,
+      "instrument_f1": 0.25072340425531914,
+      "verb_f1": 0.014037735849056604,
+      "target_f1": 0.09304347826086956,
+      "num_samples": 500
+    },
+    "majority": {
+      "exact_match_accuracy": 0.506,
+      "instrument_accuracy": 0.982,
+      "verb_accuracy": 0.592,
+      "target_accuracy": 0.856,
+      "instrument_f1": 0.9730817356205853,
+      "verb_f1": 0.4402814070351759,
+      "target_f1": 0.7895862068965518,
+      "num_samples": 500
+    },
+    "majority_class": "Grasper, grasp, No_Target"
+  }
+}

@@ -1,0 +1,17 @@
+# Keep the image layer small: heavy state lives on the Network Volume.
+.git
+.gitignore
+data
+data.tar
+*.tar
+checkpoints
+logs
+wandb
+results
+__pycache__
+**/__pycache__
+*.pyc
+.venv
+venv
+tests
+docs

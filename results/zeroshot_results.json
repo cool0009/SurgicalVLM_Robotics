@@ -1,0 +1,248 @@
+{
+  "phase_cholec80": {
+    "accuracy": 0.36863543788187375,
+    "weighted_f1": 0.20891939024386819,
+    "macro_f1": 0.11751886959777702,
+    "per_phase_f1": {
+      "Preparation": 0.0,
+      "CalotTriangleDissection": 0.0,
+      "ClippingCutting": 0.045454545454545456,
+      "GallbladderDissection": 0.5371775417298937,
+      "GallbladderPackaging": 0.24,
+      "CleaningCoagulation": 0.0,
+      "GallbladderRetraction": 0.0
+    },
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        0,
+        17,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        192,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        36,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        177,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        17,
+        3,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        26,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        16,
+        0,
+        0,
+        0
+      ]
+    ],
+    "transition_accuracy": 0.21333333333333335,
+    "num_samples": 491
+  },
+  "instruments_cholec80": {
+    "macro_f1": 0.17260108830511825,
+    "micro_f1": 0.3063178047223995,
+    "samples_f1": 0.2569555555555555,
+    "subset_accuracy": 0.068,
+    "hamming_loss": 0.31057142857142855,
+    "map_05": 0.17260108830511825,
+    "per_tool_f1": {
+      "Grasper": 0.6359583952451708,
+      "Bipolar": 0.07387862796833773,
+      "Hook": 0.006349206349206348,
+      "Scissors": 0.13793103448275862,
+      "Clipper": 0.0,
+      "Irrigator": 0.06837606837606838,
+      "SpecimenBag": 0.2857142857142857
+    },
+    "per_tool_precision": {
+      "Grasper": 0.4682713347921225,
+      "Bipolar": 0.03867403314917127,
+      "Hook": 0.5,
+      "Scissors": 0.10526315789473684,
+      "Clipper": 0.0,
+      "Irrigator": 0.041237113402061855,
+      "SpecimenBag": 1.0
+    },
+    "per_tool_recall": {
+      "Grasper": 0.9907407407407407,
+      "Bipolar": 0.8235294117647058,
+      "Hook": 0.003194888178913738,
+      "Scissors": 0.2,
+      "Clipper": 0.0,
+      "Irrigator": 0.2,
+      "SpecimenBag": 0.16666666666666666
+    },
+    "num_samples": 500
+  },
+  "phase_heichole": {
+    "accuracy": 0.0,
+    "weighted_f1": 0.0,
+    "macro_f1": 0.0,
+    "per_phase_f1": {
+      "Preparation": 0.0,
+      "CalotTriangleDissection": 0.0
+    },
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        0,
+        154,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "transition_accuracy": 0.0,
+    "num_samples": 154
+  },
+  "instruments_heichole": {
+    "macro_f1": 0.0,
+    "micro_f1": 0.0,
+    "samples_f1": 0.0,
+    "subset_accuracy": 0.0064516129032258064,
+    "hamming_loss": 0.2728110599078341,
+    "map_05": 0.0,
+    "per_tool_f1": {
+      "Grasper": 0.0,
+      "Bipolar": 0.0,
+      "Hook": 0.0,
+      "Scissors": 0.0,
+      "Clipper": 0.0,
+      "Irrigator": 0.0,
+      "SpecimenBag": 0.0
+    },
+    "per_tool_precision": {
+      "Grasper": 0.0,
+      "Bipolar": 0.0,
+      "Hook": 0.0,
+      "Scissors": 0.0,
+      "Clipper": 0.0,
+      "Irrigator": 0.0,
+      "SpecimenBag": 0.0
+    },
+    "per_tool_recall": {
+      "Grasper": 0.0,
+      "Bipolar": 0.0,
+      "Hook": 0.0,
+      "Scissors": 0.0,
+      "Clipper": 0.0,
+      "Irrigator": 0.0,
+      "SpecimenBag": 0.0
+    },
+    "num_samples": 155
+  },
+  "triplet_cholect50": {
+    "exact_match_accuracy": 0.022,
+    "instrument_accuracy": 0.684,
+    "verb_accuracy": 0.038,
+    "target_accuracy": 0.032,
+    "instrument_f1": 0.802494623655914,
+    "verb_f1": 0.05354545454545455,
+    "target_f1": 0.06155505617977528,
+    "num_samples": 500
+  },
+  "language_surg396k": {
+    "num_samples": 500,
+    "bleu": 0.18,
+    "rouge_l": 0.1262,
+    "rouge_1": 0.1365,
+    "rouge_2": 0.0029
+  }
+}

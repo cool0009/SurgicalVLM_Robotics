@@ -1,0 +1,69 @@
+# Eval config for direct-scp evaluation (bypasses /runpod-volume network volume).
+# Identical to runpod_7b_config.yaml except data paths point at data pushed
+# directly onto the pod's local disk at /workspace/eval_data.
+
+model:
+  type: "qwen3_vl"
+  load_in_4bit: true
+  use_temporal: true
+  max_pixels: 1003520
+  temporal_config:
+    hidden_dim: 3584
+    num_heads: 8
+    num_layers: 4
+    dropout: 0.1
+    max_frames: 16
+    num_frames: 3
+    use_pos_encoding: true
+
+multitask:
+  sampling_strategy: "weighted_equal"
+  dataset_ratios:
+    cholec80: 1.0
+    cholec_t50: 1.0
+    heichole: 1.0
+    surg396k: 1.0
+  loss_weights:
+    phase_classification: 2.0
+    tool_detection: 1.5
+    action_triplet: 1.5
+    language_modeling: 1.0
+    triplet: 1.5
+    grounding: 0.5
+
+lora:
+  enabled: true
+  config_path: "configs/training/lora_config.yaml"
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  modules_to_save: ["embed_tokens", "lm_head"]
+
+output_adapter:
+  hidden_dim: 3584
+  num_phases: 8
+  num_instruments: 7
+  num_actions: 10
+  triplet_instruments: 6
+  triplet_verbs: 10
+  triplet_targets: 15
+  vocab_size: 152064
+  use_temporal: true
+
+data:
+  jsonl_dir: "/workspace/eval_data/processed/vlm_jsonl"
+  splits_dir: "configs/data/splits.yaml"
+  test_files:
+    - "cholec80_phases_vlm_test.jsonl"
+    - "heichole_multitask_vlm_test.jsonl"
+    - "cholect50_triplets_vlm_test.jsonl"
+    - "surg396k_vlm_test.jsonl"
+  fps: 1
+  seq_length: 3
+  max_text_length: 512
+  image_root: "/workspace/eval_data/data"

@@ -1,0 +1,549 @@
+{
+  "detailed_results": {
+    "phase_cholec80": {
+      "accuracy": 0.588,
+      "weighted_f1": 0.5523505611574154,
+      "macro_f1": 0.37103722762054636,
+      "per_phase_f1": {
+        "Preparation": 0.2857142857142857,
+        "CalotTriangleDissection": 0.6666666666666666,
+        "ClippingCutting": 0.0,
+        "GallbladderDissection": 0.6526315789473685,
+        "GallbladderPackaging": 0.32558139534883723,
+        "CleaningCoagulation": 0.37037037037037035,
+        "GallbladderRetraction": 0.2962962962962963
+      },
+      "confusion_matrix": [
+        [
+          3,
+          14,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          146,
+          0,
+          40,
+          0,
+          7,
+          0
+        ],
+        [
+          0,
+          24,
+          0,
+          12,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          49,
+          0,
+          124,
+          2,
+          7,
+          0
+        ],
+        [
+          0,
+          4,
+          0,
+          10,
+          7,
+          0,
+          5
+        ],
+        [
+          0,
+          4,
+          0,
+          10,
+          3,
+          10,
+          1
+        ],
+        [
+          1,
+          4,
+          0,
+          2,
+          5,
+          1,
+          4
+        ]
+      ],
+      "transition_accuracy": 0.49333333333333335,
+      "num_samples": 500
+    },
+    "phase_heichole": {
+      "accuracy": 0.0,
+      "weighted_f1": 0.0,
+      "macro_f1": 0.0,
+      "per_phase_f1": {
+        "Preparation": 0.0,
+        "CalotTriangleDissection": 0.0,
+        "ClippingCutting": 0.0,
+        "GallbladderDissection": 0.0
+      },
+      "confusion_matrix": [
+        [
+          0,
+          142,
+          0,
+          1,
+          0,
+          12,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "transition_accuracy": 0.0,
+      "num_samples": 155
+    },
+    "instruments_cholec80": {
+      "macro_f1": 0.32983768181618733,
+      "micro_f1": 0.7478260869565218,
+      "samples_f1": 0.6241333333333332,
+      "subset_accuracy": 0.518,
+      "hamming_loss": 0.09114285714285714,
+      "map_05": 0.32983768181618733,
+      "per_tool_f1": {
+        "Grasper": 0.7433962264150943,
+        "Bipolar": 0.0,
+        "Hook": 0.8338658146964856,
+        "Scissors": 0.0,
+        "Clipper": 0.0,
+        "Irrigator": 0.09523809523809523,
+        "SpecimenBag": 0.6363636363636364
+      },
+      "per_tool_precision": {
+        "Grasper": 0.6273885350318471,
+        "Bipolar": 0.0,
+        "Hook": 0.8338658146964856,
+        "Scissors": 0.0,
+        "Clipper": 0.0,
+        "Irrigator": 1.0,
+        "SpecimenBag": 1.0
+      },
+      "per_tool_recall": {
+        "Grasper": 0.9120370370370371,
+        "Bipolar": 0.0,
+        "Hook": 0.8338658146964856,
+        "Scissors": 0.0,
+        "Clipper": 0.0,
+        "Irrigator": 0.05,
+        "SpecimenBag": 0.4666666666666667
+      },
+      "num_samples": 500
+    },
+    "instruments_heichole": {
+      "macro_f1": 0.0,
+      "micro_f1": 0.0,
+      "samples_f1": 0.0,
+      "subset_accuracy": 0.4258064516129032,
+      "hamming_loss": 0.10599078341013825,
+      "map_05": 0.0,
+      "per_tool_f1": {
+        "Grasper": 0.0,
+        "Bipolar": 0.0,
+        "Hook": 0.0,
+        "Scissors": 0.0,
+        "Clipper": 0.0,
+        "Irrigator": 0.0,
+        "SpecimenBag": 0.0
+      },
+      "per_tool_precision": {
+        "Grasper": 0.0,
+        "Bipolar": 0.0,
+        "Hook": 0.0,
+        "Scissors": 0.0,
+        "Clipper": 0.0,
+        "Irrigator": 0.0,
+        "SpecimenBag": 0.0
+      },
+      "per_tool_recall": {
+        "Grasper": 0.0,
+        "Bipolar": 0.0,
+        "Hook": 0.0,
+        "Scissors": 0.0,
+        "Clipper": 0.0,
+        "Irrigator": 0.0,
+        "SpecimenBag": 0.0
+      },
+      "num_samples": 155
+    },
+    "heichole_multitask": {
+      "phase": {
+        "accuracy": 0.0,
+        "weighted_f1": 0.0,
+        "macro_f1": 0.0,
+        "per_phase_f1": {
+          "Preparation": 0.0,
+          "CalotTriangleDissection": 0.0,
+          "ClippingCutting": 0.0,
+          "GallbladderDissection": 0.0
+        },
+        "confusion_matrix": [
+          [
+            0,
+            142,
+            0,
+            1,
+            0,
+            12,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "transition_accuracy": 0.0,
+        "num_samples": 155
+      },
+      "tools": {
+        "macro_f1": 0.0,
+        "micro_f1": 0.0,
+        "samples_f1": 0.0,
+        "subset_accuracy": 0.4258064516129032,
+        "hamming_loss": 0.10599078341013825,
+        "map_05": 0.0,
+        "per_tool_f1": {
+          "Grasper": 0.0,
+          "Bipolar": 0.0,
+          "Hook": 0.0,
+          "Scissors": 0.0,
+          "Clipper": 0.0,
+          "Irrigator": 0.0,
+          "SpecimenBag": 0.0
+        },
+        "per_tool_precision": {
+          "Grasper": 0.0,
+          "Bipolar": 0.0,
+          "Hook": 0.0,
+          "Scissors": 0.0,
+          "Clipper": 0.0,
+          "Irrigator": 0.0,
+          "SpecimenBag": 0.0
+        },
+        "per_tool_recall": {
+          "Grasper": 0.0,
+          "Bipolar": 0.0,
+          "Hook": 0.0,
+          "Scissors": 0.0,
+          "Clipper": 0.0,
+          "Irrigator": 0.0,
+          "SpecimenBag": 0.0
+        },
+        "num_samples": 155
+      },
+      "action": {
+        "accuracy": 1.0,
+        "weighted_f1": 1.0,
+        "macro_f1": 1.0,
+        "per_class_f1": {
+          "No_Action": 1.0
+        },
+        "per_class_precision": {
+          "No_Action": 1.0,
+          "Dissect": 0.0,
+          "Grasp": 0.0,
+          "Clip": 0.0,
+          "Cut": 0.0,
+          "Coagulate": 0.0,
+          "Retract": 0.0,
+          "Irrigate": 0.0,
+          "Pack": 0.0,
+          "Clean": 0.0
+        },
+        "per_class_recall": {
+          "No_Action": 1.0,
+          "Dissect": 0.0,
+          "Grasp": 0.0,
+          "Clip": 0.0,
+          "Cut": 0.0,
+          "Coagulate": 0.0,
+          "Retract": 0.0,
+          "Irrigate": 0.0,
+          "Pack": 0.0,
+          "Clean": 0.0
+        },
+        "confusion_matrix": [
+          [
+            155,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "num_samples": 155,
+        "top3_accuracy": 1.0,
+        "top5_accuracy": 1.0
+      }
+    },
+    "language_surg396k": {
+      "num_samples": 500,
+      "bleu": 0.18,
+      "rouge_l": 0.1088,
+      "rouge_1": 0.1228,
+      "rouge_2": 0.0123
+    },
+    "triplet_cholect50": {
+      "exact_match_accuracy": 0.064,
+      "instrument_accuracy": 0.982,
+      "verb_accuracy": 0.092,
+      "target_accuracy": 0.856,
+      "instrument_f1": 0.9730817356205853,
+      "verb_f1": 0.0983448275862069,
+      "target_f1": 0.7895862068965518,
+      "num_samples": 500
+    }
+  },
+  "dissertation_tables": {
+    "table_5_1": {
+      "Method": "SurgicalVLM (Ours)",
+      "Accuracy": 0.588,
+      "F1": 0.37103722762054636
+    },
+    "table_5_2": {
+      "Method": "SurgicalVLM (Ours)",
+      "mAP@0.5": 0.0,
+      "F1": 0.0
+    },
+    "table_5_3": {
+      "Method": "SurgicalVLM (Ours)",
+      "Exact Match": 0.064,
+      "Instrument F1": 0.9730817356205853,
+      "Verb F1": 0.0983448275862069,
+      "Target F1": 0.7895862068965518
+    },
+    "table_5_4": {
+      "Method": "SurgicalVLM (Ours)",
+      "BLEU-4": 0.18,
+      "ROUGE-L": 0.1088
+    }
+  }
+}
